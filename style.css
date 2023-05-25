@@ -31,6 +31,11 @@
 .stat {
     padding-top: 10px;
     padding-bottom: 10px;
+    background-image: url("parchment.png");
+    background-position: left top;
+    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #levelBox {
@@ -60,7 +65,11 @@
 
 .space {
     margin: 5px;
-    background-color: blanchedalmond;
+    /* background-image: url("parchment.png");
+    background-position: left top;
+    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat; */
 }
 
 #inspirationTextbox {
