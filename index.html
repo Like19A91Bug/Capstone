@@ -22,8 +22,8 @@
             style="background-image: url('containerBackground.jpg')"
             class="container-fluid"
         >
-            <div class="row">
-                <div id="navBar" class="col-12 space">
+            <!-- <div class="row">
+                <div id="navBar" class="col-12">
                     <span class="material-symbols-outlined"
                         >settings_account_box</span
                     >
@@ -32,10 +32,39 @@
                     <span class="material-symbols-outlined"> swords </span>
                     <span class="material-symbols-outlined"> tune </span>
                 </div>
-            </div>
+            </div> -->
+            <nav id="navBar" class="navbar statBackground">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"
+                        ><span class="material-symbols-outlined"
+                            >settings_account_box</span
+                        ></a
+                    >
+                    <a class="navbar-brand" href="#"
+                        ><span class="material-symbols-outlined">
+                            account_box
+                        </span></a
+                    >
+                    <a class="navbar-brand" href="#"
+                        ><span class="material-symbols-outlined">
+                            backpack
+                        </span></a
+                    >
+                    <a class="navbar-brand" href="#"
+                        ><span class="material-symbols-outlined">
+                            swords
+                        </span></a
+                    >
+                    <a class="navbar-brand" href="#"
+                        ><span class="material-symbols-outlined">
+                            tune
+                        </span></a
+                    >
+                </div>
+            </nav>
             <!-- End of the navBar-->
             <div class="row">
-                <div id="characterInfo" class="col-8 space">
+                <div id="characterInfo" class="col-8 statBackground">
                     <div class="row">
                         <div class="col">
                             <div class="row">
@@ -57,7 +86,7 @@
                     </div>
                 </div>
                 <!-- End of characterInfo Box-->
-                <div id="levelBox" class="col space">
+                <div id="levelBox" class="col statBackground">
                     <div class="row">
                         <div class="col-1 text-end">Exp:</div>
                         <div id="expInput" class="col">
@@ -77,86 +106,126 @@
             <!-- End of row 2 -->
             <div class="row">
                 <div id="characterStats" class="col-1">
-                    <div class="row">
-                        <div class="col space">
-                            <div class="row stat"><h5>STR</h5></div>
-                            <div class="row"><h6>1</h6></div>
+                    <div class="smBg">
+                        <div>
+                            <h5>STR</h5>
+                            <hr />
+                            <h6>1</h6>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col space">
-                            <div class="row stat"><h5>DEX</h5></div>
-                            <div class="row"><h6>1</h6></div>
+                    <div class="smBg">
+                        <div>
+                            <h5>DEX</h5>
+                            <hr />
+                            <h6>1</h6>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col space">
-                            <div class="row stat"><h5>CON</h5></div>
-                            <div class="row"><h6>1</h6></div>
+                    <div class="smBg">
+                        <div>
+                            <h5>CON</h5>
+                            <hr />
+                            <h6>1</h6>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col space">
-                            <div class="row stat"><h5>INT</h5></div>
-                            <div class="row"><h6>1</h6></div>
+                    <div class="smBg">
+                        <div>
+                            <h5>INT</h5>
+                            <hr />
+                            <h6>1</h6>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col space">
-                            <div class="row stat"><h5>WIS</h5></div>
-                            <div class="row"><h6>1</h6></div>
+                    <div class="smBg">
+                        <div>
+                            <h5>WIS</h5>
+                            <hr />
+                            <h6>1</h6>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col space">
-                            <div class="row stat"><h5>CHA</h5></div>
-                            <div class="row"><h6>1</h6></div>
+                    <div class="smBg">
+                        <div>
+                            <h5>CHA</h5>
+                            <hr />
+                            <h6>1</h6>
                         </div>
                     </div>
                 </div>
-                <div class="col-1"></div>
-                <div class="col-2 space">
+
+                <div class="col-2 statBackground">
                     <div class="row">
-                        <div id="skillsList" class="col">
+                        <div id="skillsList" class="col text-center">
                             <p>Acrobatics</p>
+                            <hr />
                             <p>Animal Handling</p>
+                            <hr />
                             <p>Arcana</p>
+                            <hr />
                             <p>Athletics</p>
+                            <hr />
                             <p>Deception</p>
+                            <hr />
                             <p>History</p>
+                            <hr />
                             <p>Insight</p>
+                            <hr />
                             <p>Intimidation</p>
+                            <hr />
                             <p>Investigation</p>
+                            <hr />
                             <p>Medicine</p>
+                            <hr />
                             <p>Nature</p>
+                            <hr />
                             <p>Perception</p>
+                            <hr />
                             <p>Performance</p>
+                            <hr />
                             <p>Persuasion</p>
+                            <hr />
                             <p>Religion</p>
+                            <hr />
                             <p>Sleight of Hand</p>
+                            <hr />
                             <p>Stealth</p>
+                            <hr />
                             <p>Survival</p>
                         </div>
                         <!-- End of skillsList box -->
                         <div id="skillsStats" class="col-4">
                             <!-- all p tags need to have data populated with js -->
                             <p>4</p>
+                            <hr />
                             <p>9</p>
+                            <hr />
                             <p>8</p>
+                            <hr />
                             <p>6</p>
+                            <hr />
                             <p>2</p>
+                            <hr />
                             <p>3</p>
+                            <hr />
                             <p>4</p>
+                            <hr />
                             <p>2</p>
+                            <hr />
                             <p>8</p>
+                            <hr />
                             <p>4</p>
+                            <hr />
                             <p>3</p>
+                            <hr />
                             <p>9</p>
+                            <hr />
                             <p>2</p>
+                            <hr />
                             <p>2</p>
+                            <hr />
                             <p>3</p>
+                            <hr />
                             <p>9</p>
+                            <hr />
                             <p>4</p>
+                            <hr />
                             <p>9</p>
                         </div>
                     </div>
@@ -164,7 +233,7 @@
                 <div class="col-1"></div>
                 <!-- End of skillsStats (col 1) box -->
                 <div class="col-3">
-                    <div id="savesBox" class="row space">
+                    <div id="savesBox" class="row statBackground">
                         <div class="col">
                             <div class="row">
                                 <div class="col">
@@ -206,7 +275,7 @@
                     </div>
                     <div class="row blankSpaceOne"></div>
                     <!-- End of savesBox -->
-                    <div id="inspProfPass" class="row space">
+                    <div id="inspProfPass" class="row statBackground">
                         <dive class="col">
                             <div class="row">
                                 <div class="col-7">Inspiration</div>
@@ -232,7 +301,7 @@
                 <div class="col-1"></div>
                 <!-- End of col 2 of row 3 -->
                 <div class="col">
-                    <div id="healthBox" class="row space">
+                    <div id="healthBox" class="row statBackground">
                         <div class="col">
                             <div class="row">
                                 <div class="col-4 healthBoxText">
