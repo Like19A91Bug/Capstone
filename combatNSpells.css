@@ -1,0 +1,21 @@
+#navBar {
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: blanchedalmond;
+}
+
+#meleeCombat {
+    background-color: blanchedalmond;
+    margin-right: 10px;
+}
+
+#rangedCombat {
+    background-color: blanchedalmond;
+    margin-left: 10px;
+}
+
+#castingRolls {
+    background-color: blanchedalmond;
+    margin-top: 10px;
+}
