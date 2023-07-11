@@ -12,6 +12,4 @@ fetch("https://www.dnd5eapi.co/api/", requestOptions)
 
 const displayLists = (data) => {
     console.log(data);
-    let abilityScores = data.results[1];
-    console.log(abilityScores);
 };
