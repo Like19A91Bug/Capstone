@@ -69,6 +69,7 @@
 #inspProfPass {
     border: 1px solid black;
     padding: 10px;
+    margin-bottom: 10px;
 }
 
 .smBg {
@@ -118,4 +119,9 @@ p {
 #space {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+#equippedItems {
+    margin-top: 10px;
+    margin-right: 100px;
 }
