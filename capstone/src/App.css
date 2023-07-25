@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
+#skillsList {
+    padding-top: 10px;
+    border: 1px solid black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#skillsStats {
+    font-size: 10px;
+    padding-top: 10px;
+    text-align: center;
+    border: 1px solid black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#characterStats {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#characterInfo {
+    border: 1px solid black;
+    padding: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+#navBar {
+    border: 1px solid black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.stat {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#levelBox {
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+}
+
+#currentLvl {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#savesBox {
+    border: 1px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#inspProfPass {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.space {
+    margin: 5px;
+    background-color: blanchedalmond;
+}
+
+#inspirationTextbox {
+    width: 50px;
+}
+
+#healthBox {
+    border: 1px solid black;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#damageTaken {
+    width: 50px;
+}
+
+.healthBoxText {
+    text-align: end;
+    padding-top: 10px;
+}
+
+p {
+    font-size: 10px;
+}
+
+.blankSpaceOne {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
