@@ -1,6 +1,6 @@
 const CICharacterInfo = () => {
     return (
-        <div id="characterInfo" className="col space">
+        <div id="characterInfo" className="col-9 space">
             <div className="row">
                 <div className="col">
                     <div className="row">

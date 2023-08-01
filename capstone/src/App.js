@@ -1,17 +1,32 @@
 import "./App.css";
 import Layout from "./Layout";
 import CharacterInfo from "./CharacterInfo";
+import BagOfHolding from "./BagOfHolding";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Layout />,
+        children: [
+            {
+                path: "/",
+                element: <CharacterInfo />,
+            },
+            {
+                path: "/BagOfHolding",
+                element: <BagOfHolding />,
+            },
+        ],
+    },
+]);
 
 function App() {
     return (
         <div className="App">
             <div className="container">
                 <div className="row">
-                    <Layout />
-                </div>
-                <div className="row">
-                    <CharacterInfo />
-                    {/* plan to have this change out based on what is selected ideally. if not then plan b */}
+                    <RouterProvider router={router} />
                 </div>
             </div>
         </div>

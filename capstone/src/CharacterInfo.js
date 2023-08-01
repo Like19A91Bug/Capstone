@@ -19,7 +19,7 @@ const CharacterInfo = () => {
                 </div>
                 <div className="col-5">
                     <CISaves />
-                    <div className="row blankSpaceOne"></div>
+                    <div className="row"></div>
                     <CIInspProfPass />
                     <CILevelBox />
                     <CIHealthBox />
