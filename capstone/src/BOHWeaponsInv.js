@@ -1,6 +1,6 @@
 const BOHWeaponsInv = () => {
     return (
-        <div id="weaponsInv" className="col statBackground">
+        <div id="weaponsInv" className="col space">
             <h3>Weapons</h3>
             <h5>Simple Melee</h5>
             <div className="dropdown">

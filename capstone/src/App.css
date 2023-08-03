@@ -1,10 +1,11 @@
 #skillsList {
     padding-top: 10px;
     border: 1px solid black;
+    font-size: 15px;
 }
 
 #skillsStats {
-    font-size: 10px;
+    font-size: 15px;
     padding-top: 10px;
     text-align: center;
     border: 1px solid black;
@@ -87,11 +88,71 @@ p {
     font-size: 10px;
 }
 
-.blankSpaceOne {
+/* .blankSpaceOne {
     padding-top: 10px;
     padding-bottom: 10px;
-}
+} */
 
 button {
-    width: 100px;
+    width: 20%;
+}
+
+#featsBox {
+    border: 1px solid black;
+}
+
+#equippedBox {
+    border: 1px solid black;
+    padding-bottom: 25px;
+}
+
+#quickAccessBox {
+    border: 1px solid black;
+}
+
+.dropdown-menu {
+    position: relative;
+}
+
+.statBackground {
+    background-color: blanchedalmond;
+}
+
+#potsNSpells {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#weaponsInv {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+#coinPurse {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+#armorInv {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.textBox {
+    max-width: 50px;
+}
+
+#meleeCombat {
+    background-color: blanchedalmond;
+    margin-bottom: 10px;
+}
+
+#rangedCombat {
+    background-color: blanchedalmond;
+    margin-top: 10px;
+}
+
+#castingRolls {
+    background-color: blanchedalmond;
+    margin-top: 10px;
 }

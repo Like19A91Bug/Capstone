@@ -5,6 +5,9 @@ import CISkills from "./CISkills";
 import CISaves from "./CISaves";
 import CIInspProfPass from "./CIInspProfPass";
 import CIHealthBox from "./CIHealthBox";
+import CIFeats from "./CIFeats";
+import CIEquipped from "./CIEquipped";
+import CIQAInv from "./CIQAInv";
 
 const CharacterInfo = () => {
     return (
@@ -14,16 +17,20 @@ const CharacterInfo = () => {
             </div>
             <div className="row">
                 <CICharacterStats />
-                <div className="col-3">
+                <div className="col">
                     <CISkills />
                 </div>
-                <div className="col-5">
+                <div className="col">
                     <CISaves />
-                    <div className="row"></div>
                     <CIInspProfPass />
                     <CILevelBox />
                     <CIHealthBox />
                 </div>
+            </div>
+            <div className="row">
+                <CIFeats />
+                <CIEquipped />
+                <CIQAInv />
             </div>
         </div>
     );

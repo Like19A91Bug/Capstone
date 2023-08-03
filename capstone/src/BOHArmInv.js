@@ -1,114 +1,65 @@
 const BOHArmInv = () => {
     return (
-        <div id="armorInv" className="col statBackground">
+        <div className="col space">
             <h3>Armor</h3>
-            <div className="dropdown">
-                <button
-                    className="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                >
-                    Helmets
-                </button>
-                <ul className="dropdown-menu">
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Action
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Another action
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Something else here
-                        </a>
-                    </li>
-                </ul>
+            <div className="row">
+                <div className="col-3">Armor</div>
+                <div className="col-1">AC</div>
+                <div className="col-2">DEX Bonus</div>
+                <div className="col-1">STR Min</div>
+                <div className="col-1">Stealth Dis</div>
+                <div className="col-1">lbs</div>
+                <div className="col-1">Cost</div>
+                <div className="col-1">Qty</div>
             </div>
-            <div className="dropdown">
-                <button
-                    className="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                >
-                    Armor
-                </button>
-                <ul className="dropdown-menu">
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Action
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Another action
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Something else here
-                        </a>
-                    </li>
-                </ul>
+            <hr />
+            <div className="row">
+                <div className="col-3">Dropdown</div>
+                <div className="col-1">11</div>
+                <div className="col-2">TRUE</div>
+                <div className="col-1">0</div>
+                <div className="col-1">TRUE</div>
+                <div className="col-1">8</div>
+                <div className="col-1">5gp</div>
+                <div className="col-1">
+                    <input className="textBox" type="number" />
+                </div>
             </div>
-            <div className="dropdown">
-                <button
-                    className="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                >
-                    Boots
-                </button>
-                <ul className="dropdown-menu">
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Action
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Another action
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Something else here
-                        </a>
-                    </li>
-                </ul>
+            <div className="row">
+                <div className="col-3">Dropdown</div>
+                <div className="col-1">AC</div>
+                <div className="col-2">DEX Bonus</div>
+                <div className="col-1">STR Min</div>
+                <div className="col-1">Stealth Dis</div>
+                <div className="col-1">lbs</div>
+                <div className="col-1">Cost</div>
+                <div className="col-1">
+                    <input className="textBox" type="number" />
+                </div>
             </div>
-            <div className="dropdown">
-                <button
-                    className="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                >
-                    Shield
-                </button>
-                <ul className="dropdown-menu">
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Action
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Another action
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Something else here
-                        </a>
-                    </li>
-                </ul>
+            <div className="row">
+                <div className="col-3">Dropdown</div>
+                <div className="col-1">AC</div>
+                <div className="col-2">DEX Bonus</div>
+                <div className="col-1">STR Min</div>
+                <div className="col-1">Stealth Dis</div>
+                <div className="col-1">lbs</div>
+                <div className="col-1">Cost</div>
+                <div className="col-1">
+                    <input className="textBox" type="number" />
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-3">Dropdown</div>
+                <div className="col-1">AC</div>
+                <div className="col-2">DEX Bonus</div>
+                <div className="col-1">STR Min</div>
+                <div className="col-1">Stealth Dis</div>
+                <div className="col-1">lbs</div>
+                <div className="col-1">Cost</div>
+                <div className="col-1">
+                    <input className="textBox" type="number" />
+                </div>
             </div>
         </div>
     );

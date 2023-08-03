@@ -1,7 +1,7 @@
 const CISkills = () => {
     return (
-        <div className="row space">
-            <div id="skillsList" className="col">
+        <div className="row">
+            <div id="skillsList" className="col-3 space">
                 <p>Acrobatics</p>
                 <p>Animal Handling</p>
                 <p>Arcana</p>
@@ -21,7 +21,7 @@ const CISkills = () => {
                 <p>Stealth</p>
                 <p>Survival</p>
             </div>
-            <div id="skillsStats" className="col">
+            <div id="skillsStats" className="col-2 space">
                 <p>4</p>
                 <p>9</p>
                 <p>8</p>

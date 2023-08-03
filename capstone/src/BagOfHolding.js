@@ -11,8 +11,22 @@ const BagOfHolding = () => {
                 <BOHCoinPurse />
             </div>
             <div className="row">
-                <BOHWeaponsInv />
-                <BOHPotsNScrolls />
+                <div className="col">
+                    <BOHWeaponsInv />
+                    <BOHPotsNScrolls />
+                </div>
+                <div className="col space">
+                    <div className="row">
+                        <h3>General Inventory</h3>
+                    </div>
+
+                    <div className="row">
+                        <div className="col">Item</div>
+                        <div className="col">Description</div>
+                        <div className="col">Qty.</div>
+                    </div>
+                    <hr />
+                </div>
             </div>
         </div>
     );
