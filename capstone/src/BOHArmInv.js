@@ -14,7 +14,11 @@ const BOHArmInv = () => {
             </div>
             <hr />
             <div className="row">
-                <div className="col-3">Dropdown</div>
+                <div className="col-3">
+                    <select>
+                        <option>Short Sword</option>
+                    </select>
+                </div>
                 <div className="col-1">11</div>
                 <div className="col-2">TRUE</div>
                 <div className="col-1">0</div>
@@ -26,7 +30,11 @@ const BOHArmInv = () => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-3">Dropdown</div>
+                <div className="col-3">
+                    <select>
+                        <option>Short Sword</option>
+                    </select>
+                </div>
                 <div className="col-1">AC</div>
                 <div className="col-2">DEX Bonus</div>
                 <div className="col-1">STR Min</div>
@@ -38,7 +46,11 @@ const BOHArmInv = () => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-3">Dropdown</div>
+                <div className="col-3">
+                    <select>
+                        <option>Short Sword</option>
+                    </select>
+                </div>
                 <div className="col-1">AC</div>
                 <div className="col-2">DEX Bonus</div>
                 <div className="col-1">STR Min</div>
@@ -50,7 +62,11 @@ const BOHArmInv = () => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-3">Dropdown</div>
+                <div className="col-3">
+                    <select>
+                        <option>Short Sword</option>
+                    </select>
+                </div>
                 <div className="col-1">AC</div>
                 <div className="col-2">DEX Bonus</div>
                 <div className="col-1">STR Min</div>

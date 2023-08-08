@@ -26,6 +26,26 @@ const BagOfHolding = () => {
                         <div className="col">Qty.</div>
                     </div>
                     <hr />
+                    <div className="Row">
+                        <select>
+                            <option>Short Bow</option>
+                        </select>
+                    </div>
+                    <div className="Row">
+                        <select>
+                            <option>Short Bow</option>
+                        </select>
+                    </div>
+                    <div className="Row">
+                        <select>
+                            <option>Short Bow</option>
+                        </select>
+                    </div>
+                    <div className="Row">
+                        <select>
+                            <option>Short Bow</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>

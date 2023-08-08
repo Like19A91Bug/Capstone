@@ -3,117 +3,21 @@ const BOHWeaponsInv = () => {
         <div id="weaponsInv" className="col space">
             <h3>Weapons</h3>
             <h5>Simple Melee</h5>
-            <div className="dropdown">
-                <button
-                    className="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                >
-                    Short Sword
-                </button>
-                <ul className="dropdown-menu">
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Action
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Another action
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Something else here
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <select>
+                <option>Short Sword</option>
+            </select>
             <h5>Martial Melee</h5>
-            <div className="dropdown">
-                <button
-                    className="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                >
-                    Kukri
-                </button>
-                <ul className="dropdown-menu">
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Action
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Another action
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Something else here
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <select>
+                <option>Kukri</option>
+            </select>
             <h5>Simple Ranged</h5>
-            <div className="dropdown">
-                <button
-                    className="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                >
-                    Short Bow
-                </button>
-                <ul className="dropdown-menu">
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Action
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Another action
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Something else here
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <select>
+                <option>Short Bow</option>
+            </select>
             <h5>Martial Ranged</h5>
-            <div className="dropdown">
-                <button
-                    className="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                >
-                    Compound Bow
-                </button>
-                <ul className="dropdown-menu">
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Action
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Another action
-                        </a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">
-                            Something else here
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <select>
+                <option>Compound Bow</option>
+            </select>
         </div>
     );
 };
