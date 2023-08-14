@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 const BOHArmInv = () => {
     return (
         <div className="col space">
@@ -14,11 +16,7 @@ const BOHArmInv = () => {
             </div>
             <hr />
             <div className="row">
-                <div className="col-3">
-                    <select>
-                        <option>Short Sword</option>
-                    </select>
-                </div>
+                <ArmorDropdown />
                 <div className="col-1">11</div>
                 <div className="col-2">TRUE</div>
                 <div className="col-1">0</div>
@@ -31,9 +29,7 @@ const BOHArmInv = () => {
             </div>
             <div className="row">
                 <div className="col-3">
-                    <select>
-                        <option>Short Sword</option>
-                    </select>
+                    <ArmorDropdown />
                 </div>
                 <div className="col-1">AC</div>
                 <div className="col-2">DEX Bonus</div>
@@ -47,9 +43,7 @@ const BOHArmInv = () => {
             </div>
             <div className="row">
                 <div className="col-3">
-                    <select>
-                        <option>Short Sword</option>
-                    </select>
+                    <ArmorDropdown />
                 </div>
                 <div className="col-1">AC</div>
                 <div className="col-2">DEX Bonus</div>
@@ -63,9 +57,7 @@ const BOHArmInv = () => {
             </div>
             <div className="row">
                 <div className="col-3">
-                    <select>
-                        <option>Short Sword</option>
-                    </select>
+                    <ArmorDropdown />
                 </div>
                 <div className="col-1">AC</div>
                 <div className="col-2">DEX Bonus</div>
@@ -77,6 +69,35 @@ const BOHArmInv = () => {
                     <input className="textBox" type="number" />
                 </div>
             </div>
+        </div>
+    );
+};
+
+const ArmorDropdown = () => {
+    const [equipments, setEquipments] = useState();
+    useEffect(() => {
+        const makeAPICall = async () => {
+            const response = await fetch(
+                `https://www.dnd5eapi.co/api/equipment-categories/armor`
+            );
+            const data = await response.json();
+            setEquipments(data.equipment);
+            console.log(equipments);
+        };
+        makeAPICall();
+        console.log("API Call running");
+    }, []);
+    return (
+        // <>
+        // {(equipments}).map((equipment))
+        //     <option>Armor</option>
+        // </>
+        <div className="col-3">
+            <select>
+                {/* {equipments.map((equipment) => {
+                    return <li key={equipment.name}>{equipment.name}</li>;
+                })} */}
+            </select>
         </div>
     );
 };
