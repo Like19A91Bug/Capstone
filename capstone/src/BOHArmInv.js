@@ -28,9 +28,7 @@ const BOHArmInv = () => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-3">
-                    <ArmorDropdown />
-                </div>
+                <ArmorDropdown />
                 <div className="col-1">AC</div>
                 <div className="col-2">DEX Bonus</div>
                 <div className="col-1">STR Min</div>
@@ -42,9 +40,7 @@ const BOHArmInv = () => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-3">
-                    <ArmorDropdown />
-                </div>
+                <ArmorDropdown />
                 <div className="col-1">AC</div>
                 <div className="col-2">DEX Bonus</div>
                 <div className="col-1">STR Min</div>
@@ -56,9 +52,7 @@ const BOHArmInv = () => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-3">
-                    <ArmorDropdown />
-                </div>
+                <ArmorDropdown />
                 <div className="col-1">AC</div>
                 <div className="col-2">DEX Bonus</div>
                 <div className="col-1">STR Min</div>
@@ -74,29 +68,30 @@ const BOHArmInv = () => {
 };
 
 const ArmorDropdown = () => {
-    const [equipments, setEquipments] = useState();
+    const [equipment, setEquipments] = useState();
     useEffect(() => {
         const makeAPICall = async () => {
             const response = await fetch(
                 `https://www.dnd5eapi.co/api/equipment-categories/armor`
             );
-            const data = await response.json();
-            setEquipments(data.equipment);
-            console.log(equipments);
+            const armor = await response.json();
+            console.log(armor.equipment);
+            setEquipments(armor.equipment);
         };
         makeAPICall();
         console.log("API Call running");
     }, []);
     return (
-        // <>
-        // {(equipments}).map((equipment))
-        //     <option>Armor</option>
-        // </>
-        <div className="col-3">
+        <div className="col-5">
             <select>
-                {/* {equipments.map((equipment) => {
-                    return <li key={equipment.name}>{equipment.name}</li>;
-                })} */}
+                {equipment.map((equipment) => {
+                    console.log(equipment);
+                    return (
+                        <option key={equipment.index} content={equipment.name}>
+                            {equipment.name}
+                        </option>
+                    );
+                })}
             </select>
         </div>
     );
