@@ -1,6 +1,6 @@
 const CISaves = () => {
     return (
-        <div id="savesBox" className="row space">
+        <div id="savesBox" className="row">
             <div className="col">
                 <div className="row">
                     <div className="col">

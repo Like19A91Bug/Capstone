@@ -8,7 +8,7 @@ import CIHealthBox from "./CIHealthBox";
 import CIFeats from "./CIFeats";
 import CIEquipped from "./CIEquipped";
 import CIQAInv from "./CIQAInv";
-
+import "./CharacterInfo.css";
 const CharacterInfo = () => {
     return (
         <div className="row">
@@ -17,7 +17,7 @@ const CharacterInfo = () => {
             </div>
             <div className="row">
                 <CICharacterStats />
-                <div className="col">
+                <div id="skills" className="col">
                     <CISkills />
                 </div>
                 <div className="col">

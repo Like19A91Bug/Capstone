@@ -5,7 +5,7 @@ const CIInspProfPass = () => {
                 <div className="row">
                     <div className="col">Inspiration</div>
                     <div className="col">
-                        <input id="inspirationTextbox" type="text" />
+                        <input id="inspirationTextbox" type="number" />
                     </div>
                 </div>
                 <div className="row">

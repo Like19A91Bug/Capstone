@@ -6,7 +6,6 @@ const CICharacterInfo = () => {
                     <div className="row">
                         <h6>Name:</h6>
                         <h6>Race:</h6>
-                        <h6>Sub-race:</h6>
                         <h6>Size:</h6>
                         <h6>Speed:</h6>
                     </div>

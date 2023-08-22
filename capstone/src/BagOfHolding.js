@@ -2,6 +2,7 @@ import BOHArmInv from "./BOHArmInv";
 import BOHCoinPurse from "./BOHCoinPurse";
 import BOHWeaponsInv from "./BOHWeaponsInv";
 import BOHPotsNScrolls from "./BOHPotsNScrolls";
+import BOHGeneralInv from "./BOHGeneralInv";
 
 const BagOfHolding = () => {
     return (
@@ -15,38 +16,7 @@ const BagOfHolding = () => {
                     <BOHWeaponsInv />
                     <BOHPotsNScrolls />
                 </div>
-                <div className="col space">
-                    <div className="row">
-                        <h3>General Inventory</h3>
-                    </div>
-
-                    <div className="row">
-                        <div className="col">Item</div>
-                        <div className="col">Description</div>
-                        <div className="col">Qty.</div>
-                    </div>
-                    <hr />
-                    <div className="Row">
-                        <select>
-                            <option>Short Bow</option>
-                        </select>
-                    </div>
-                    <div className="Row">
-                        <select>
-                            <option>Short Bow</option>
-                        </select>
-                    </div>
-                    <div className="Row">
-                        <select>
-                            <option>Short Bow</option>
-                        </select>
-                    </div>
-                    <div className="Row">
-                        <select>
-                            <option>Short Bow</option>
-                        </select>
-                    </div>
-                </div>
+                <BOHGeneralInv />
             </div>
         </div>
     );

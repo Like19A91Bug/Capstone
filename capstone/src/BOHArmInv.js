@@ -1,99 +1,146 @@
 import { useState, useEffect } from "react";
 
 const BOHArmInv = () => {
-    return (
-        <div className="col space">
-            <h3>Armor</h3>
-            <div className="row">
-                <div className="col-3">Armor</div>
-                <div className="col-1">AC</div>
-                <div className="col-2">DEX Bonus</div>
-                <div className="col-1">STR Min</div>
-                <div className="col-1">Stealth Dis</div>
-                <div className="col-1">lbs</div>
-                <div className="col-1">Cost</div>
-                <div className="col-1">Qty</div>
-            </div>
-            <hr />
-            <div className="row">
-                <ArmorDropdown />
-                <div className="col-1">11</div>
-                <div className="col-2">TRUE</div>
-                <div className="col-1">0</div>
-                <div className="col-1">TRUE</div>
-                <div className="col-1">8</div>
-                <div className="col-1">5gp</div>
-                <div className="col-1">
-                    <input className="textBox" type="number" />
-                </div>
-            </div>
-            <div className="row">
-                <ArmorDropdown />
-                <div className="col-1">AC</div>
-                <div className="col-2">DEX Bonus</div>
-                <div className="col-1">STR Min</div>
-                <div className="col-1">Stealth Dis</div>
-                <div className="col-1">lbs</div>
-                <div className="col-1">Cost</div>
-                <div className="col-1">
-                    <input className="textBox" type="number" />
-                </div>
-            </div>
-            <div className="row">
-                <ArmorDropdown />
-                <div className="col-1">AC</div>
-                <div className="col-2">DEX Bonus</div>
-                <div className="col-1">STR Min</div>
-                <div className="col-1">Stealth Dis</div>
-                <div className="col-1">lbs</div>
-                <div className="col-1">Cost</div>
-                <div className="col-1">
-                    <input className="textBox" type="number" />
-                </div>
-            </div>
-            <div className="row">
-                <ArmorDropdown />
-                <div className="col-1">AC</div>
-                <div className="col-2">DEX Bonus</div>
-                <div className="col-1">STR Min</div>
-                <div className="col-1">Stealth Dis</div>
-                <div className="col-1">lbs</div>
-                <div className="col-1">Cost</div>
-                <div className="col-1">
-                    <input className="textBox" type="number" />
-                </div>
-            </div>
-        </div>
-    );
-};
-
-const ArmorDropdown = () => {
-    const [equipment, setEquipments] = useState();
+    const [armor, setArmor] = useState([]);
+    const [editMode, setEditMode] = useState(false);
     useEffect(() => {
         const makeAPICall = async () => {
             const response = await fetch(
                 `https://www.dnd5eapi.co/api/equipment-categories/armor`
             );
-            const armor = await response.json();
-            console.log(armor.equipment);
-            setEquipments(armor.equipment);
+            const data = await response.json();
+            // console.log(data.equipment);
+            setArmor(data.equipment);
         };
         makeAPICall();
-        console.log("API Call running");
+        // console.log("API Call running");
     }, []);
+
+    return (
+        <div className="col space">
+            <h3>Armor</h3>
+            <div className="row">
+                <div className="col-3">Armor</div>
+                <div className="col">AC</div>
+                <div className="col">DEX Bonus</div>
+                <div className="col">STR Min</div>
+                <div className="col">Stealth Dis</div>
+                <div className="col">lbs</div>
+                <div className="col">Cost</div>
+                <div className="col">Qty</div>
+            </div>
+            <hr />
+            <ArmorRow armor={armor} editMode={editMode} />
+            <ArmorRow armor={armor} editMode={editMode} />
+            <ArmorRow armor={armor} editMode={editMode} />
+            <ArmorRow armor={armor} editMode={editMode} />
+            {editMode ? (
+                <button
+                    onClick={(event) => {
+                        setEditMode(!editMode);
+                    }}
+                >
+                    Save
+                </button>
+            ) : (
+                <button
+                    onClick={(event) => {
+                        setEditMode(!editMode);
+                    }}
+                >
+                    Edit
+                </button>
+            )}
+        </div>
+    );
+};
+
+const ArmorRow = ({ armor, editMode }) => {
+    const [selectedArmor, setSelectedArmor] = useState();
+    return (
+        <div className="row">
+            <ArmorDropdown
+                armor={armor}
+                setSelectedArmor={setSelectedArmor}
+                editMode={editMode}
+                selectedArmor={selectedArmor}
+            />
+            <ArmorStats selectedArmor={selectedArmor} />
+            <div className="col">
+                <input className="textBox" type="number" />
+            </div>
+        </div>
+    );
+};
+
+const ArmorDropdown = ({
+    armor,
+    setSelectedArmor,
+    editMode,
+    selectedArmor,
+}) => {
+    const selectedArmorData = armor.find(
+        (armor) => armor.url === selectedArmor
+    );
+
+    console.log(selectedArmor, selectedArmorData);
+
+    if (!editMode) {
+        return <div className="col-5">{selectedArmorData?.name}</div>;
+    }
     return (
         <div className="col-5">
-            <select>
-                {equipment.map((equipment) => {
-                    console.log(equipment);
+            <select
+                onChange={(event) => {
+                    setSelectedArmor(event.target.value);
+                }}
+            >
+                <option>Select Armor</option>
+                {armor.map((armor) => {
+                    console.log(armor.index);
                     return (
-                        <option key={equipment.index} content={equipment.name}>
-                            {equipment.name}
+                        <option key={armor.index} value={armor.url}>
+                            {armor.name}
                         </option>
                     );
                 })}
             </select>
         </div>
+    );
+};
+
+const ArmorStats = ({ selectedArmor }) => {
+    const [armorDetails, setArmorDetails] = useState();
+    useEffect(() => {
+        const makeAPICall = async () => {
+            const response = await fetch(
+                `https://www.dnd5eapi.co${selectedArmor}`
+            );
+            const data = await response.json();
+            setArmorDetails(data);
+        };
+        if (selectedArmor) {
+            makeAPICall();
+        }
+    }, [selectedArmor]);
+
+    if (!selectedArmor) {
+        return <div>Press "Edit" and make a selection in dropdown</div>;
+    }
+    if (!armorDetails) {
+        return <div>Loading...</div>;
+    }
+    return (
+        <>
+            <div className="col-1">{armorDetails.armor_class.base}</div>
+            <div className="col-1">{armorDetails.armor_class.dex_bonus}</div>
+            <div className="col-1">{armorDetails.str_minimum}</div>
+            <div className="col">{armorDetails.stealth_disadvantage}</div>
+            <div className="col">{armorDetails.weight}</div>
+            <div className="col">
+                {armorDetails.cost.quantity} {armorDetails.cost.unit}
+            </div>
+        </>
     );
 };
 

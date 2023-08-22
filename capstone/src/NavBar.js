@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
     return (
         <div id="navBar" className="space">
-            <button>
-                <span className="material-symbols-outlined">
-                    settings_account_box
-                </span>
-            </button>
             <Link to="/">
+                <button>
+                    <span className="material-symbols-outlined">
+                        settings_account_box
+                    </span>
+                </button>
+            </Link>
+            <Link to="/characterinfo">
                 <button>
                     <span className="material-symbols-outlined">
                         account_box
@@ -25,9 +27,11 @@ const NavBar = () => {
                     <span className="material-symbols-outlined"> swords </span>
                 </button>
             </Link>
-            <button>
-                <span className="material-symbols-outlined"> tune </span>
-            </button>
+            <Link to="/classinfo">
+                <button>
+                    <span className="material-symbols-outlined"> tune </span>
+                </button>
+            </Link>
         </div>
     );
 };

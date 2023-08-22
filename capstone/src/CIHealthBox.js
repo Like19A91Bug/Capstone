@@ -9,7 +9,6 @@ const CIHealthBox = () => {
                     <div className="col text-center">
                         <h3>102</h3>
                     </div>
-                    <div className="col"></div>
                 </div>
                 <div className="row">
                     <div className="col healthBoxText">
@@ -18,7 +17,6 @@ const CIHealthBox = () => {
                     <div className="col healthBoxText text-center">
                         <p>102</p>
                     </div>
-                    <div className="col"></div>
                 </div>
                 <div className="row">
                     <div className="col healthBoxText text-end">
@@ -27,7 +25,6 @@ const CIHealthBox = () => {
                     <div className="col text-center">
                         <input id="damageTaken" type="text" />
                     </div>
-                    <div className="col"></div>
                 </div>
             </div>
         </div>

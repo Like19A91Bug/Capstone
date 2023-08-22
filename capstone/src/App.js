@@ -1,8 +1,10 @@
 import "./App.css";
 import Layout from "./Layout";
+import Home from "./Home";
 import CharacterInfo from "./CharacterInfo";
 import BagOfHolding from "./BagOfHolding";
 import Combat from "./Combat";
+import ClassInfo from "./ClassInfo";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -12,6 +14,10 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
+                element: <Home />,
+            },
+            {
+                path: "/characterinfo",
                 element: <CharacterInfo />,
             },
             {
@@ -21,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path: "/combat",
                 element: <Combat />,
+            },
+            {
+                path: "/classinfo",
+                element: <ClassInfo />,
             },
         ],
     },

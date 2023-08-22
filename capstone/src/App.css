@@ -1,101 +1,44 @@
-#skillsList {
-    padding-top: 10px;
-    border: 1px solid black;
-    font-size: 15px;
-}
-
-#skillsStats {
-    font-size: 15px;
-    padding-top: 10px;
-    text-align: center;
+#navBar {
     border: 1px solid black;
 }
 
-#characterStats {
-    text-align: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border: 1px solid black;
+button {
+    width: 20%;
 }
+/* 
+
+
+
+
 
 #characterInfo {
     border: 1px solid black;
     padding: 10px;
 }
 
-#navBar {
-    border: 1px solid black;
-}
 
-.stat {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
 
-#levelBox {
-    border: 1px solid black;
-    text-align: center;
-    padding: 10px;
-}
 
-#currentLvl {
-    margin-top: 10px;
-    margin-bottom: 5px;
-    border: 1px solid black;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
 
-#savesBox {
-    border: 1px solid black;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
 
-#inspProfPass {
-    border: 1px solid black;
-    padding: 10px;
-}
+
+
+
+
 
 .space {
     background-color: blanchedalmond;
 }
 
-#inspirationTextbox {
-    width: 50px;
-}
 
-#healthBox {
-    border: 1px solid black;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
 
-#damageTaken {
-    width: 50px;
-}
 
-.healthBoxText {
-    text-align: end;
-    padding-top: 10px;
-}
 
 p {
     font-size: 10px;
 }
 
-/* .blankSpaceOne {
-    padding-top: 10px;
-    padding-bottom: 10px;
-} */
 
-button {
-    width: 20%;
-}
 
 #featsBox {
     border: 1px solid black;
@@ -110,8 +53,8 @@ button {
     border: 1px solid black;
 }
 
-.dropdown-menu {
-    position: relative;
+dropdown {
+    max-width: relative;
 }
 
 .statBackground {
@@ -155,4 +98,4 @@ button {
 #castingRolls {
     background-color: blanchedalmond;
     margin-top: 10px;
-}
+} */
