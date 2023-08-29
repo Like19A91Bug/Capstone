@@ -66,9 +66,6 @@ const ArmorRow = ({ armor, editMode }) => {
                 selectedArmor={selectedArmor}
             />
             <ArmorStats selectedArmor={selectedArmor} />
-            <div className="col">
-                <input className="textBox" type="number" />
-            </div>
         </div>
     );
 };
@@ -139,6 +136,9 @@ const ArmorStats = ({ selectedArmor }) => {
             <div className="col">{armorDetails.weight}</div>
             <div className="col">
                 {armorDetails.cost.quantity} {armorDetails.cost.unit}
+            </div>
+            <div className="col">
+                <input className="textBox" type="number" />
             </div>
         </>
     );

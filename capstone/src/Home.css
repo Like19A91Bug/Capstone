@@ -1,0 +1,16 @@
+.profileButton {
+    width: 20%;
+}
+
+#logIn {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+#userName {
+    max-width: 30%;
+}
+
+#passWord {
+    max-width: 30%;
+}

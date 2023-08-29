@@ -3,6 +3,7 @@ import BOHCoinPurse from "./BOHCoinPurse";
 import BOHWeaponsInv from "./BOHWeaponsInv";
 import BOHPotsNScrolls from "./BOHPotsNScrolls";
 import BOHGeneralInv from "./BOHGeneralInv";
+import "./BagOfHolding.css";
 
 const BagOfHolding = () => {
     return (

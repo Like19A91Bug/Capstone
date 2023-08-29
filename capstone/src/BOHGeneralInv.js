@@ -10,7 +10,7 @@ const BOHGeneralInv = () => {
                 `https://www.dnd5eapi.co/api/equipment-categories/standard-gear`
             );
             const data = await response.json();
-            // console.log(data.equipment);
+            console.log(data.equipment);
             setGear(data.equipment);
         };
         makeAPICall();
@@ -61,8 +61,6 @@ const BOHGeneralInv = () => {
     );
 };
 
-export default BOHGeneralInv;
-
 const GeneralInvRow = ({ gear, editMode }) => {
     const [selectedGear, setSelectedGear] = useState();
     return (
@@ -85,7 +83,7 @@ const GeneralInvDropdown = ({
     editMode,
 }) => {
     const selectedGearData = gear.find((gear) => gear.url === selectedGear);
-    // console.log(selectedGear, selectedGearData);
+    console.log(selectedGear, selectedGearData);
     if (!editMode) {
         return <div className="col-5">{selectedGearData?.name}</div>;
     }
@@ -97,7 +95,7 @@ const GeneralInvDropdown = ({
         >
             <option>Select Item</option>
             {gear.map((gear) => {
-                // console.log(gear);
+                console.log(gear);
                 if (!editMode) {
                     return (
                         <div className="col-5">{selectedGearData?.name}</div>
@@ -141,3 +139,4 @@ const GearStats = ({ selectedGear }) => {
         </>
     );
 };
+export default BOHGeneralInv;

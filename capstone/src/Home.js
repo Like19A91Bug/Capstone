@@ -1,18 +1,26 @@
+import "./Home.css";
+
 const Home = () => {
     return (
         <div className="row">
             <div className="col">
                 <h1>Log In</h1>
                 <div className="row">
-                    Username: <input type="text" />
+                    Username: <input id="userName" type="text" />
                 </div>
                 <div className="row">
-                    Password: <input type="text" />
+                    Password: <input id="passWord" type="text" />
                 </div>
                 <hr />
-                <div className="row">
-                    <button>Log In</button>
-                    <button>Create New Profile</button>
+                <div id="logIn" className="row">
+                    <div>
+                        <button className="profileButton">Log In</button>
+                    </div>
+                    <div>
+                        <button className="profileButton">
+                            Create New Profile
+                        </button>
+                    </div>
                 </div>
                 <hr />
                 <div
@@ -29,7 +37,7 @@ const Home = () => {
                                 aria-expanded="false"
                                 aria-controls="flush-collapseOne"
                             >
-                                Accordion Item #1
+                                Finnan Tumbleweed // Druid Artificer // 19 // 🟢
                             </button>
                         </h2>
                         <div
@@ -105,13 +113,15 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <button>Create New Adventurer</button>
+                    <button className="profileButton">
+                        Create New Adventurer
+                    </button>
                 </div>
                 <div className="row">
-                    <button>Load Adventurer</button>
+                    <button className="profileButton">Load Adventurer</button>
                 </div>
                 <div className="row">
-                    <button>Edit Adventurer</button>
+                    <button className="profileButton">Edit Adventurer</button>
                 </div>
             </div>
         </div>

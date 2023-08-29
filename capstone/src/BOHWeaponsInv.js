@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./BagOfHolding.css";
 
 const BOHWeaponsInv = () => {
     const [weapon, setWeapon] = useState([]);
@@ -9,7 +10,7 @@ const BOHWeaponsInv = () => {
                 `https://www.dnd5eapi.co/api/equipment-categories/weapon`
             );
             const data = await response.json();
-            // console.log(data.equipment);
+            console.log(data.equipment);
             setWeapon(data.equipment);
         };
         makeAPICall();
@@ -19,8 +20,8 @@ const BOHWeaponsInv = () => {
         <div id="weaponsInv" className="col space">
             <h3>Weapons</h3>
             <div className="row">
-                <div className="col-3">Weapon</div>
-                <div className="col">Category Range</div>
+                <div className="col-2">Weapon</div>
+                <div className="col-2">Category Range</div>
                 <div className="col">Damage</div>
                 <div className="col">DMG Type</div>
                 <div className="col">Range</div>
@@ -69,9 +70,6 @@ const WeaponRow = ({ weapon, editMode }) => {
                 selectedWeapon={selectedWeapon}
             />
             <WeaponStats selectedWeapon={selectedWeapon} />
-            <div className="col">
-                <input className="textBox" type="number" />
-            </div>
         </div>
     );
 };
@@ -89,20 +87,20 @@ const WeaponDropdown = ({
     console.log(selectedWeapon, selectedWeaponData);
 
     if (!editMode) {
-        return <div className="col-5">{selectedWeaponData?.name}</div>;
+        return <div className="col-2">{selectedWeaponData?.name}</div>;
     }
     return (
-        <div className="col-5">
-            <select>
-                onChange=
-                {(event) => {
+        <div className="col-2">
+            <select
+                onChange={(event) => {
                     setSelectedWeapon(event.target.value);
                 }}
+            >
                 <option>Select Weapon</option>
                 {weapon.map((weapon) => {
-                    // console.log(weapon);
+                    console.log(weapon);
                     return (
-                        <option key={weapon.index} content={weapon.url}>
+                        <option key={weapon.index} value={weapon.url}>
                             {weapon.name}
                         </option>
                     );
@@ -136,13 +134,15 @@ const WeaponStats = ({ selectedWeapon }) => {
     }
     return (
         <>
-            <div className="col-1">{weaponDetails.category_range}</div>
-            <div className="col-1">{weaponDetails.damage.damage_dice}</div>
+            <div className="col-2">{weaponDetails.category_range}</div>
             <div className="col-1">{weaponDetails.damage.damage_dice}</div>
             <div className="col">{weaponDetails.range.normal}</div>
             <div className="col">{weaponDetails.weight}</div>
             <div className="col">
                 {weaponDetails.cost.quantity} {weaponDetails.cost.unit}
+            </div>
+            <div className="col">
+                <input className="textBox" type="number" />
             </div>
         </>
     );
