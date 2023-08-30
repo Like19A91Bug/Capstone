@@ -12,6 +12,42 @@
         />
     </head>
     <body>
-        <div class="container"></div>
+        <div class="container">
+            <table
+                class="table table-striped table-warning table-borderless table-sm"
+            >
+                <thead>
+                    <tr>
+                        <th scope="col">Armor</th>
+                        <th scope="col">AC</th>
+                        <th scope="col">DEX Bonus</th>
+                        <th scope="col">STR Min</th>
+                        <th scope="col">Stealth Dis</th>
+                        <th scope="col">lbs</th>
+                        <th scope="col">Cost</th>
+                        <th scope="col">Qty</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">
+                            <select>
+                                <option>Armor</option>
+                            </select>
+                        </th>
+                        <td>{armorDetails.armor_class.base}</td>
+                        <td>{armorDetails.armor_class.dex_bonus}</td>
+                        <td>{armorDetails.str_minimum}</td>
+                        <td>{armorDetails.stealth_disadvantage}</td>
+                        <td>{armorDetails.weight}</td>
+                        <td>
+                            {armorDetails.cost.quantity}
+                            {armorDetails.cost.unit}
+                        </td>
+                        <td><input className="textBox" type="number" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

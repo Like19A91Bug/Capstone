@@ -17,23 +17,26 @@ const BOHArmInv = () => {
     }, []);
 
     return (
-        <div className="col space">
+        <div className="col">
             <h3>Armor</h3>
-            <div className="row">
-                <div className="col-3">Armor</div>
-                <div className="col">AC</div>
-                <div className="col">DEX Bonus</div>
-                <div className="col">STR Min</div>
-                <div className="col">Stealth Dis</div>
-                <div className="col">lbs</div>
-                <div className="col">Cost</div>
-                <div className="col">Qty</div>
-            </div>
-            <hr />
-            <ArmorRow armor={armor} editMode={editMode} />
-            <ArmorRow armor={armor} editMode={editMode} />
-            <ArmorRow armor={armor} editMode={editMode} />
-            <ArmorRow armor={armor} editMode={editMode} />
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Armor</th>
+                        <th scope="col">AC</th>
+                        <th scope="col">DEX Bonus</th>
+                        <th scope="col">STR Min</th>
+                        <th scope="col">Stealth Dis</th>
+                        <th scope="col">lbs</th>
+                        <th scope="col">Cost</th>
+                        <th scope="col">Qty</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ArmorRow armor={armor} editMode={editMode} />
+                </tbody>
+            </table>
+
             {editMode ? (
                 <button
                     onClick={(event) => {
@@ -59,12 +62,15 @@ const ArmorRow = ({ armor, editMode }) => {
     const [selectedArmor, setSelectedArmor] = useState();
     return (
         <div className="row">
-            <ArmorDropdown
-                armor={armor}
-                setSelectedArmor={setSelectedArmor}
-                editMode={editMode}
-                selectedArmor={selectedArmor}
-            />
+            <td>
+                <ArmorDropdown
+                    armor={armor}
+                    setSelectedArmor={setSelectedArmor}
+                    editMode={editMode}
+                    selectedArmor={selectedArmor}
+                />
+            </td>
+
             <ArmorStats selectedArmor={selectedArmor} />
         </div>
     );
@@ -83,10 +89,10 @@ const ArmorDropdown = ({
     console.log(selectedArmor, selectedArmorData);
 
     if (!editMode) {
-        return <div className="col-5">{selectedArmorData?.name}</div>;
+        return <div className="col">{selectedArmorData?.name}</div>;
     }
     return (
-        <div className="col-5">
+        <div className="col">
             <select
                 onChange={(event) => {
                     setSelectedArmor(event.target.value);
@@ -129,7 +135,21 @@ const ArmorStats = ({ selectedArmor }) => {
     }
     return (
         <>
-            <div className="col-1">{armorDetails.armor_class.base}</div>
+            <tr>
+                <td>{armorDetails.armor_class.base}</td>
+                <td>{armorDetails.armor_class.dex_bonus}</td>
+                <td>{armorDetails.str_minimum}</td>
+                <td>{armorDetails.stealth_disadvantage}</td>
+                <td>{armorDetails.weight}</td>
+                <td>
+                    {armorDetails.cost.quantity}
+                    {armorDetails.cost.unit}
+                </td>
+                <td>
+                    <input className="textBox" type="number" />
+                </td>
+            </tr>
+            {/* <div className="col-1">{armorDetails.armor_class.base}</div>
             <div className="col-1">{armorDetails.armor_class.dex_bonus}</div>
             <div className="col-1">{armorDetails.str_minimum}</div>
             <div className="col">{armorDetails.stealth_disadvantage}</div>
@@ -139,7 +159,7 @@ const ArmorStats = ({ selectedArmor }) => {
             </div>
             <div className="col">
                 <input className="textBox" type="number" />
-            </div>
+            </div> */}
         </>
     );
 };
