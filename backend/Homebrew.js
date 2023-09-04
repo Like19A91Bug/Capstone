@@ -4,11 +4,11 @@ const Homebrew = (db) => {
     return db.define("homebrew", {
         id: {
             primaryKey: true,
-            type: DataTypes.INTERGER,
+            type: DataTypes.INTEGER,
             autoIncrement: true,
         },
-        username: DataTypes.STRINNG,
-        password: DataTypes.VARCHAR,
+        username: DataTypes.STRING,
+        password: DataTypes.STRING,
     });
 };
 export default Homebrew;

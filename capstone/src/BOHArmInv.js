@@ -19,20 +19,23 @@ const BOHArmInv = () => {
     return (
         <div className="col">
             <h3>Armor</h3>
-            <table>
+            <table className="table">
                 <thead>
                     <tr>
-                        <th scope="col">Armor</th>
-                        <th scope="col">AC</th>
-                        <th scope="col">DEX Bonus</th>
-                        <th scope="col">STR Min</th>
-                        <th scope="col">Stealth Dis</th>
-                        <th scope="col">lbs</th>
-                        <th scope="col">Cost</th>
-                        <th scope="col">Qty</th>
+                        <th>Armor</th>
+                        <th>AC</th>
+                        <th>DEX Bonus</th>
+                        <th>STR Min</th>
+                        <th>Stealth Dis</th>
+                        <th>lbs</th>
+                        <th>Cost</th>
+                        <th>Qty</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <ArmorRow armor={armor} editMode={editMode} />
+                    <ArmorRow armor={armor} editMode={editMode} />
+                    <ArmorRow armor={armor} editMode={editMode} />
                     <ArmorRow armor={armor} editMode={editMode} />
                 </tbody>
             </table>
@@ -61,7 +64,7 @@ const BOHArmInv = () => {
 const ArmorRow = ({ armor, editMode }) => {
     const [selectedArmor, setSelectedArmor] = useState();
     return (
-        <div className="row">
+        <tr>
             <td>
                 <ArmorDropdown
                     armor={armor}
@@ -72,7 +75,7 @@ const ArmorRow = ({ armor, editMode }) => {
             </td>
 
             <ArmorStats selectedArmor={selectedArmor} />
-        </div>
+        </tr>
     );
 };
 
@@ -92,7 +95,7 @@ const ArmorDropdown = ({
         return <div className="col">{selectedArmorData?.name}</div>;
     }
     return (
-        <div className="col">
+        <td>
             <select
                 onChange={(event) => {
                     setSelectedArmor(event.target.value);
@@ -108,7 +111,7 @@ const ArmorDropdown = ({
                     );
                 })}
             </select>
-        </div>
+        </td>
     );
 };
 
@@ -135,20 +138,19 @@ const ArmorStats = ({ selectedArmor }) => {
     }
     return (
         <>
-            <tr>
-                <td>{armorDetails.armor_class.base}</td>
-                <td>{armorDetails.armor_class.dex_bonus}</td>
-                <td>{armorDetails.str_minimum}</td>
-                <td>{armorDetails.stealth_disadvantage}</td>
-                <td>{armorDetails.weight}</td>
-                <td>
-                    {armorDetails.cost.quantity}
-                    {armorDetails.cost.unit}
-                </td>
-                <td>
-                    <input className="textBox" type="number" />
-                </td>
-            </tr>
+            <td>{armorDetails.armor_class.base}</td>
+            <td>{armorDetails.armor_class.dex_bonus}</td>
+            <td>{armorDetails.str_minimum}</td>
+            <td>{armorDetails.stealth_disadvantage}</td>
+            <td>{armorDetails.weight}</td>
+            <td>
+                {armorDetails.cost.quantity}
+                {armorDetails.cost.unit}
+            </td>
+            <td>
+                <input className="textBox" type="number" />
+            </td>
+
             {/* <div className="col-1">{armorDetails.armor_class.base}</div>
             <div className="col-1">{armorDetails.armor_class.dex_bonus}</div>
             <div className="col-1">{armorDetails.str_minimum}</div>
