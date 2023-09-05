@@ -1,6 +1,6 @@
 import "./Home.css";
 import APIURL from "./APIURL.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Home = () => {
     return (
@@ -67,67 +67,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div id="logIn" className="row">
-                    <div
-                        className="accordion accordion-flush"
-                        id="accordionFlushExample"
-                    >
-                        <div className="accordion-item">
-                            <h2 className="accordion-header">
-                                <button
-                                    className="accordion-button collapsed"
-                                    type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseOne"
-                                    aria-expanded="true"
-                                    aria-controls="flush-collapseOne"
-                                >
-                                    Create New Profile
-                                </button>
-                            </h2>
-                            <div
-                                id="flush-collapseOne"
-                                className="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample"
-                            >
-                                <div className="accordion-body">
-                                    <NewProfileForm />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr />
-                <div className="row  accordion-group">
-                    <div
-                        className="accordion accordion-flush"
-                        id="accordionFlushExample2"
-                    >
-                        <div className="accordion-item">
-                            <h2 className="accordion-header">
-                                <button
-                                    className="accordion-button collapsed"
-                                    type="button"
-                                    data-bs-toggle="collapse2"
-                                    data-bs-target="#flush-collapseTwo"
-                                    aria-expanded="true"
-                                    aria-controls="flush-collapseTwo"
-                                >
-                                    Create New Adventurer
-                                </button>
-                            </h2>
-                            <div
-                                id="flush-collapseOne"
-                                className="accordion-collapse collapse"
-                                data-bs-parent="#accordionFlushExample2"
-                            >
-                                <div className="accordion-body">
-                                    <CreateCharacterForm />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
+
                 <hr />
                 <SavedCharacter />
             </div>
@@ -249,6 +189,7 @@ const NewProfileForm = () => {
 
         window.localStorage.setItem("userID", data.userID);
     };
+
     return (
         <div>
             <form onSubmit={onSubmit}>
@@ -293,17 +234,11 @@ const CreateCharacterForm = () => {
                 </div>
                 <div className="row">
                     <strong>Race: </strong>
-                    <select>
-                        <option>mapped races</option>
-                        <option>Human</option>
-                    </select>
+                    <RaceDropdown />
                 </div>
                 <div className="row">
                     <strong>Class: </strong>
-                    <select>
-                        <option>mapped classes</option>
-                        <option>Fighter</option>
-                    </select>
+                    <ClassDropdown />
                 </div>
                 <div className="row">
                     <strong>Sub-class: </strong>
@@ -356,5 +291,58 @@ const CreateCharacterForm = () => {
                 <button>Begin your Adventure!</button>
             </form>
         </div>
+    );
+};
+
+const RaceDropdown = () => {
+    const [races, setRaces] = useState([]);
+
+    useEffect(() => {
+        const makeAPICall = async () => {
+            const response = await fetch(`https://www.dnd5eapi.co/api/races`);
+            const data = await response.json();
+            // console.log(data.equipment);
+            setRaces(data.results);
+        };
+        makeAPICall();
+        // console.log("API Call running");
+    }, []);
+    return (
+        <select>
+            {races.map((races) => {
+                return (
+                    <option>~Select~</option>
+                    <option key={races.index} value={races.url}>
+                        {races.name}
+                    </option>
+                );
+            })}
+        </select>
+    );
+};
+
+const ClassDropdown = () => {
+    const [classes, setClasses] = useState([]);
+
+    useEffect(() => {
+        const makeAPICall = async () => {
+            const response = await fetch(`https://www.dnd5eapi.co/api/classes`);
+            const data = await response.json();
+            console.log(data.results);
+            setClasses(data.results);
+        };
+        makeAPICall();
+        // console.log("API Call running");
+    }, []);
+    return (
+        <select>
+            {classes.map((classes) => {
+                return (
+                    <option key={classes.index} value={classes.url}>
+                        {classes.name}
+                    </option>
+                );
+            })}
+        </select>
     );
 };
