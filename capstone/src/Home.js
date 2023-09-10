@@ -17,11 +17,11 @@ const Home = () => {
                     <button className="profileButton">Log In</button>
                 </div>
                 <hr />
-                <div class="accordion" id="newProfile">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
+                <div className="accordion" id="newProfile">
+                    <div className="accordion-item">
+                        <h2 className="accordion-header">
                             <button
-                                class="accordion-button"
+                                className="accordion-button"
                                 type="button"
                                 data-bs-toggle="collapse"
                                 data-bs-target="#collapseOne"
@@ -33,20 +33,20 @@ const Home = () => {
                         </h2>
                         <div
                             id="collapseOne"
-                            class="accordion-collapse collapse show"
+                            className="accordion-collapse collapse show"
                             data-bs-parent="#newProfile"
                         >
-                            <div class="accordion-body">
+                            <div className="accordion-body">
                                 <NewProfileForm />
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="accordion" id="createCharacter">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
+                <div className="accordion" id="createCharacter">
+                    <div className="accordion-item">
+                        <h2 className="accordion-header">
                             <button
-                                class="accordion-button"
+                                className="accordion-button"
                                 type="button"
                                 data-bs-toggle="collapse"
                                 data-bs-target="#collapseTwo"
@@ -58,10 +58,10 @@ const Home = () => {
                         </h2>
                         <div
                             id="collapseTwo"
-                            class="accordion-collapse collapse show"
+                            className="accordion-collapse collapse show"
                             data-bs-parent="#createCharacter"
                         >
-                            <div class="accordion-body">
+                            <div className="accordion-body">
                                 <CreateCharacterForm />
                             </div>
                         </div>
@@ -222,6 +222,18 @@ const CreateCharacterForm = () => {
             body: JSON.stringify({
                 userID: window.localStorage.getItem("userID"),
                 name: event.target.elements.name.value,
+                race: event.target.elements.race.value,
+                class: event.target.elements.class.value,
+                subclass: event.target.elements.subclass.value,
+                height: event.target.elements.height.value,
+                weight: event.target.elements.weight.value,
+                alignment: event.target.elements.alignment.value,
+                str: event.target.elements.str.value,
+                dex: event.target.elements.dex.value,
+                con: event.target.elements.con.value,
+                int: event.target.elements.int.value,
+                wis: event.target.elements.wis.value,
+                cha: event.target.elements.cha.value,
             }),
         });
     };
@@ -242,10 +254,7 @@ const CreateCharacterForm = () => {
                 </div>
                 <div className="row">
                     <strong>Sub-class: </strong>
-                    <select>
-                        <option>mapped sub-classes</option>
-                        <option>Champion</option>
-                    </select>
+                    <SubClassDropdown />
                 </div>
                 <div className="row">
                     <strong>Height: </strong>
@@ -257,9 +266,7 @@ const CreateCharacterForm = () => {
                 </div>
                 <div className="row">
                     <strong>Alignment: </strong>
-                    <select>
-                        <option>mapped alignments</option>
-                    </select>
+                    <AlignmentDropdown />
                 </div>
                 <hr />
                 <div className="row">Roll for a d20 these values</div>
@@ -301,7 +308,7 @@ const RaceDropdown = () => {
         const makeAPICall = async () => {
             const response = await fetch(`https://www.dnd5eapi.co/api/races`);
             const data = await response.json();
-            // console.log(data.equipment);
+            console.log(data.results);
             setRaces(data.results);
         };
         makeAPICall();
@@ -311,7 +318,6 @@ const RaceDropdown = () => {
         <select>
             {races.map((races) => {
                 return (
-                    <option>~Select~</option>
                     <option key={races.index} value={races.url}>
                         {races.name}
                     </option>
@@ -338,8 +344,76 @@ const ClassDropdown = () => {
         <select>
             {classes.map((classes) => {
                 return (
-                    <option key={classes.index} value={classes.url}>
+                    <option
+                        key={classes.index}
+                        name={classes.name}
+                        value={classes.url}
+                    >
                         {classes.name}
+                    </option>
+                );
+            })}
+        </select>
+    );
+};
+
+const SubClassDropdown = () => {
+    const [subclasses, setSubClasses] = useState([]);
+
+    useEffect(() => {
+        const makeAPICall = async () => {
+            const response = await fetch(
+                `https://www.dnd5eapi.co/api/subclasses`
+            );
+            const data = await response.json();
+            console.log(data.results);
+            setSubClasses(data.results);
+        };
+        makeAPICall();
+        // console.log("API Call running");
+    }, []);
+    return (
+        <select>
+            {subclasses.map((subclasses) => {
+                return (
+                    <option
+                        key={subclasses.index}
+                        name={subclasses.name}
+                        value={subclasses.url}
+                    >
+                        {subclasses.name}
+                    </option>
+                );
+            })}
+        </select>
+    );
+};
+
+const AlignmentDropdown = () => {
+    const [alignments, setAlignments] = useState([]);
+
+    useEffect(() => {
+        const makeAPICall = async () => {
+            const response = await fetch(
+                `https://www.dnd5eapi.co/api/alignments`
+            );
+            const data = await response.json();
+            console.log(data.results);
+            setAlignments(data.results);
+        };
+        makeAPICall();
+        // console.log("API Call running");
+    }, []);
+    return (
+        <select>
+            {alignments.map((alignments) => {
+                return (
+                    <option
+                        key={alignments.index}
+                        name={alignments.name}
+                        value={alignments.url}
+                    >
+                        {alignments.name}
                     </option>
                 );
             })}
