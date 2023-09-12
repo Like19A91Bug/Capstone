@@ -38,6 +38,14 @@ server.post("/newCharacter", async (req, res) => {
     res.send({});
 });
 
+server.get("/newCharacter", async (req, res) => {
+    // 10 Use db from 3 & 4 to run a select query on the todos table to get the data
+    const dbResult = await db.query(`SELECT * FROM newcharacters`);
+
+    // 11 RESpond to the front end with the data from the query from 10
+    res.send({ todos: dbResult.rows });
+});
+
 server.listen(3080, () => {
     console.log("Server online");
 });

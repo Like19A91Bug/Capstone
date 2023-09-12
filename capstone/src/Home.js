@@ -272,27 +272,27 @@ const CreateCharacterForm = () => {
                 <div className="row">Roll for a d20 these values</div>
                 <div className="row">
                     <strong>STR: </strong>
-                    <input type="number" />
+                    <input name="str" type="number" />
                 </div>
                 <div className="row">
                     <strong>DEX: </strong>
-                    <input type="number" />
+                    <input name="str" type="number" />
                 </div>
                 <div className="row">
                     <strong>CON: </strong>
-                    <input type="number" />
+                    <input name="con" type="number" />
                 </div>
                 <div className="row">
                     <strong>INT: </strong>
-                    <input type="number" />
+                    <input name="int" type="number" />
                 </div>
                 <div className="row">
                     <strong>WIS: </strong>
-                    <input type="number" />
+                    <input name="wis" type="number" />
                 </div>
                 <div className="row">
                     <strong>CHA: </strong>
-                    <input type="number" />
+                    <input name="cha" type="number" />
                 </div>
                 <hr />
                 <button>Begin your Adventure!</button>
@@ -318,7 +318,7 @@ const RaceDropdown = () => {
         <select>
             {races.map((races) => {
                 return (
-                    <option key={races.index} value={races.url}>
+                    <option key={races.index} value={races.name}>
                         {races.name}
                     </option>
                 );
@@ -344,11 +344,7 @@ const ClassDropdown = () => {
         <select>
             {classes.map((classes) => {
                 return (
-                    <option
-                        key={classes.index}
-                        name={classes.name}
-                        value={classes.url}
-                    >
+                    <option key={classes.index} value={classes.name}>
                         {classes.name}
                     </option>
                 );
@@ -376,11 +372,7 @@ const SubClassDropdown = () => {
         <select>
             {subclasses.map((subclasses) => {
                 return (
-                    <option
-                        key={subclasses.index}
-                        name={subclasses.name}
-                        value={subclasses.url}
-                    >
+                    <option key={subclasses.index} value={subclasses.name}>
                         {subclasses.name}
                     </option>
                 );
@@ -408,11 +400,7 @@ const AlignmentDropdown = () => {
         <select>
             {alignments.map((alignments) => {
                 return (
-                    <option
-                        key={alignments.index}
-                        name={alignments.name}
-                        value={alignments.url}
-                    >
+                    <option key={alignments.index} value={alignments.name}>
                         {alignments.name}
                     </option>
                 );
