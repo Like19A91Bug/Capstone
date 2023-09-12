@@ -1,8 +1,11 @@
 import { Sequelize } from "sequelize";
 import HomebrewModel from "./Homebrew.js";
 import NewCharacterModel from "./NewCharacter.js";
-
-const db = new Sequelize(`postgres://like19a91bug@localhost:5432/homebrew`);
+let dbURL = "postgres://like19a91bug@localhost:5432/homebrew";
+if (process.env.DATABASE_URL) {
+    dbURL = process.env.DATABASE_URL;
+}
+const db = new Sequelize(dbURL);
 const Homebrew = HomebrewModel(db);
 const NewCharacter = NewCharacterModel(db);
 
