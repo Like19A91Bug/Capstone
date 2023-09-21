@@ -213,6 +213,7 @@ const NewProfileForm = () => {
 };
 
 const CreateCharacterForm = () => {
+    // const [selectedRace, setSelectedRace] = useState("race");
     const onSubmit = async (event) => {
         event.preventDefault();
 
@@ -221,21 +222,22 @@ const CreateCharacterForm = () => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 userID: window.localStorage.getItem("userID"),
-                name: event.target.elements.name.value,
-                race: event.target.elements.race.value,
+                name: event.target.elements.name,
+                race: event.target.elements.race,
                 class: event.target.elements.class.value,
-                subclass: event.target.elements.subclass.value,
+                subclass: event.target.elements.sublass,
                 height: event.target.elements.height.value,
                 weight: event.target.elements.weight.value,
                 alignment: event.target.elements.alignment.value,
                 str: event.target.elements.str.value,
-                dex: event.target.elements.dex.value,
+                dex: event.target.elements.dex,
                 con: event.target.elements.con.value,
                 int: event.target.elements.int.value,
                 wis: event.target.elements.wis.value,
                 cha: event.target.elements.cha.value,
             }),
         });
+        // setSelectedRace
     };
     return (
         <div>
@@ -246,27 +248,59 @@ const CreateCharacterForm = () => {
                 </div>
                 <div className="row">
                     <strong>Race: </strong>
-                    <RaceDropdown />
+                    <select name="race">
+                        <option>Select Race</option>
+                        <option>Dragonborn</option>
+                        <option>Dwarf</option>
+                        <option>Elf</option>
+                        <option>Gnome</option>
+                        <option>Half-Elf</option>
+                        <option>Half-Orc</option>
+                        <option>Halfling</option>
+                        <option>Human</option>
+                        <option>Tiefling</option>
+                    </select>
+                    {/* <RaceDropdown name="race" /> */}
                 </div>
                 <div className="row">
                     <strong>Class: </strong>
-                    <ClassDropdown />
+                    <select name="class">
+                        <option>Select Class</option>
+                        <option>Fighter</option>
+                    </select>
+                    {/* <ClassDropdown name="class" /> */}
                 </div>
                 <div className="row">
                     <strong>Sub-class: </strong>
-                    <SubClassDropdown />
+                    <select name="subclass">
+                        <option>Select Race</option>
+                        <option>Champion</option>
+                    </select>
+                    {/* <SubClassDropdown name="subclass" /> */}
                 </div>
                 <div className="row">
                     <strong>Height: </strong>
-                    <input type="number" />
+                    <input name="height" type="number" />
                 </div>
                 <div className="row">
                     <strong>Weight: </strong>
-                    <input type="number" />
+                    <input name="weight" type="number" />
                 </div>
                 <div className="row">
                     <strong>Alignment: </strong>
-                    <AlignmentDropdown />
+                    <select name="alignment">
+                        <option>Select Race</option>
+                        <option>Chaotic Evil</option>
+                        <option>Chaotic Good</option>
+                        <option>Chaotic Neutral</option>
+                        <option>Lawful Evil</option>
+                        <option>Lawful Good</option>
+                        <option>Lawful Neutral</option>
+                        <option>Neutral</option>
+                        <option>Neutral Evil</option>
+                        <option>Neutral Good</option>
+                    </select>
+                    {/* <AlignmentDropdown name="alignment" /> */}
                 </div>
                 <hr />
                 <div className="row">Roll for a d20 these values</div>
@@ -301,110 +335,106 @@ const CreateCharacterForm = () => {
     );
 };
 
-const RaceDropdown = () => {
-    const [races, setRaces] = useState([]);
+// const RaceDropdown = () => {
+//     const [races, setRaces] = useState([]);
 
-    useEffect(() => {
-        const makeAPICall = async () => {
-            const response = await fetch(`https://www.dnd5eapi.co/api/races`);
-            const data = await response.json();
-            console.log(data.results);
-            setRaces(data.results);
-        };
-        makeAPICall();
-        // console.log("API Call running");
-    }, []);
-    return (
-        <select>
-            {races.map((races) => {
-                return (
-                    <option key={races.index} value={races.name}>
-                        {races.name}
-                    </option>
-                );
-            })}
-        </select>
-    );
-};
+//     useEffect(() => {
+//         const makeAPICall = async () => {
+//             const response = await fetch(`https://www.dnd5eapi.co/api/races`);
+//             const data = await response.json();
+//             console.log(data.results);
+//             setRaces(data.results);
+//         };
+//         makeAPICall();
+//     }, []);
+//     return (
+//         <select onChange={{event} => setSelectedRace(event.target.value)}>
+//             {races.map((races) => {
+//                 return (
+//                     <option key={races.index} value={race}>
+//                         {races.name}
+//                     </option>
+//                 );
+//             })}
+//         </select>
+//     );
+// };
 
-const ClassDropdown = () => {
-    const [classes, setClasses] = useState([]);
+// const ClassDropdown = () => {
+//     const [classes, setClasses] = useState([]);
 
-    useEffect(() => {
-        const makeAPICall = async () => {
-            const response = await fetch(`https://www.dnd5eapi.co/api/classes`);
-            const data = await response.json();
-            console.log(data.results);
-            setClasses(data.results);
-        };
-        makeAPICall();
-        // console.log("API Call running");
-    }, []);
-    return (
-        <select>
-            {classes.map((classes) => {
-                return (
-                    <option key={classes.index} value={classes.name}>
-                        {classes.name}
-                    </option>
-                );
-            })}
-        </select>
-    );
-};
+//     useEffect(() => {
+//         const makeAPICall = async () => {
+//             const response = await fetch(`https://www.dnd5eapi.co/api/classes`);
+//             const data = await response.json();
+//             console.log(data.results);
+//             setClasses(data.results);
+//         };
+//         makeAPICall();
+//     }, []);
+//     return (
+//         <select>
+//             {classes.map((classes) => {
+//                 return (
+//                     <option key={classes.index} value={classes.name}>
+//                         {classes.name}
+//                     </option>
+//                 );
+//             })}
+//         </select>
+//     );
+// };
 
-const SubClassDropdown = () => {
-    const [subclasses, setSubClasses] = useState([]);
+// const SubClassDropdown = () => {
+//     const [subclasses, setSubClasses] = useState([]);
 
-    useEffect(() => {
-        const makeAPICall = async () => {
-            const response = await fetch(
-                `https://www.dnd5eapi.co/api/subclasses`
-            );
-            const data = await response.json();
-            console.log(data.results);
-            setSubClasses(data.results);
-        };
-        makeAPICall();
-        // console.log("API Call running");
-    }, []);
-    return (
-        <select>
-            {subclasses.map((subclasses) => {
-                return (
-                    <option key={subclasses.index} value={subclasses.name}>
-                        {subclasses.name}
-                    </option>
-                );
-            })}
-        </select>
-    );
-};
+//     useEffect(() => {
+//         const makeAPICall = async () => {
+//             const response = await fetch(
+//                 `https://www.dnd5eapi.co/api/subclasses`
+//             );
+//             const data = await response.json();
+//             console.log(data.results);
+//             setSubClasses(data.results);
+//         };
+//         makeAPICall();
+//     }, []);
+//     return (
+//         <select>
+//             {subclasses.map((subclasses) => {
+//                 return (
+//                     <option key={subclasses.index} value={subclasses.name}>
+//                         {subclasses.name}
+//                     </option>
+//                 );
+//             })}
+//         </select>
+//     );
+// };
 
-const AlignmentDropdown = () => {
-    const [alignments, setAlignments] = useState([]);
+// const AlignmentDropdown = () => {
+//     const [alignments, setAlignments] = useState([]);
 
-    useEffect(() => {
-        const makeAPICall = async () => {
-            const response = await fetch(
-                `https://www.dnd5eapi.co/api/alignments`
-            );
-            const data = await response.json();
-            console.log(data.results);
-            setAlignments(data.results);
-        };
-        makeAPICall();
-        // console.log("API Call running");
-    }, []);
-    return (
-        <select>
-            {alignments.map((alignments) => {
-                return (
-                    <option key={alignments.index} value={alignments.name}>
-                        {alignments.name}
-                    </option>
-                );
-            })}
-        </select>
-    );
-};
+//     useEffect(() => {
+//         const makeAPICall = async () => {
+//             const response = await fetch(
+//                 `https://www.dnd5eapi.co/api/alignments`
+//             );
+//             const data = await response.json();
+//             console.log(data.results);
+//             setAlignments(data.results);
+//         };
+//         makeAPICall();
+//     }, []);
+//     return (
+//         <select>
+//             {alignments.map((alignments) => {
+//                 return (
+//                     <option key={alignments.index} value={alignments.name}>
+//                         {alignments.name}
+//                     </option>
+//                 );
+//             })}
+//         </select>
+//     );
+// };

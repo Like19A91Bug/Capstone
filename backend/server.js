@@ -19,7 +19,7 @@ server.post("/homebrew", async (req, res) => {
 });
 
 server.post("/newCharacter", async (req, res) => {
-    const newCharacter = NewCharacter.create({
+    const newCharacter = newCharacter.create({
         playerID: req.body.userID,
         name: req.body.name,
         race: req.body.race,
@@ -38,12 +38,12 @@ server.post("/newCharacter", async (req, res) => {
     res.send({});
 });
 
-server.get("/newCharacter", async (req, res) => {
+server.get("/newcharacters", async (req, res) => {
     // 10 Use db from 3 & 4 to run a select query on the todos table to get the data
     const dbResult = await db.query(`SELECT * FROM newcharacters`);
 
     // 11 RESpond to the front end with the data from the query from 10
-    res.send({ todos: dbResult.rows });
+    res.send({ newcharacters: dbResult.rows });
 });
 
 server.listen(3080, () => {
