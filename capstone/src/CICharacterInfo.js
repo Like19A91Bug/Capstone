@@ -7,19 +7,19 @@ const CICharacterInfo = () => {
                         <tbody>
                             <tr>
                                 <th>Name:</th>
-                                <td>Test Character</td>
+                                <td>Demo</td>
                             </tr>
                             <tr>
                                 <th>Race:</th>
-                                <td>Dragonborn</td>
+                                <td>Human</td>
                             </tr>
                             <tr>
                                 <th>Size:</th>
-                                <td>Large</td>
+                                <td>Medium</td>
                             </tr>
                             <tr>
                                 <th>Speed:</th>
-                                <td>35mph</td>
+                                <td>30mph</td>
                             </tr>
                         </tbody>
                     </table>
@@ -37,15 +37,15 @@ const CICharacterInfo = () => {
                             </tr>
                             <tr>
                                 <th>Alignment:</th>
-                                <td>Chaotic Evil</td>
+                                <td>Lawful Good</td>
                             </tr>
                             <tr>
                                 <th>Height:</th>
-                                <td>8ft</td>
+                                <td>6ft</td>
                             </tr>
                             <tr>
                                 <th>Weight:</th>
-                                <td>275lbs</td>
+                                <td>200lbs</td>
                             </tr>
                         </tbody>
                     </table>

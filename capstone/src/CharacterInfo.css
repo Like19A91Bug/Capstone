@@ -81,8 +81,8 @@
 #currentLvl {
     margin-top: 10px;
     margin-bottom: 5px;
-    margin-left: 120px;
-    margin-right: 120px;
+    margin-left: 40%;
+    margin-right: 40%;
     border: 1px solid black;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -98,8 +98,8 @@
     border: 1px solid black;
     padding-top: 30px;
     padding-bottom: 30px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 20%;
+    padding-right: 30%;
     margin-left: 5px;
     margin-top: 10px;
 }

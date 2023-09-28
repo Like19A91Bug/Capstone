@@ -7,7 +7,7 @@ const CIHealthBox = () => {
                         <h6>HP:</h6>
                     </div>
                     <div className="col text-center">
-                        <h3>102</h3>
+                        <h3>10</h3>
                     </div>
                 </div>
                 <div className="row">
@@ -15,7 +15,7 @@ const CIHealthBox = () => {
                         <p>temp:</p>
                     </div>
                     <div className="col healthBoxText text-center">
-                        <p>102</p>
+                        <p>10</p>
                     </div>
                 </div>
                 <div className="row">
