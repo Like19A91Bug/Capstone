@@ -8,24 +8,24 @@ const CIEquipped = () => {
                 <div className="col">Bonus</div>
             </div>
             <div className="row">
-                <div className="col">Name</div>
-                <div className="col">Stat</div>
-                <div className="col">Stat</div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
             </div>
             <div className="row">
-                <div className="col">Name</div>
-                <div className="col">Stat</div>
-                <div className="col">Stat</div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
             </div>
             <div className="row">
-                <div className="col">Name</div>
-                <div className="col">Stat</div>
-                <div className="col">Stat</div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
             </div>
             <div className="row">
-                <div className="col">Name</div>
-                <div className="col">Stat</div>
-                <div className="col">Stat</div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
             </div>
             <hr />
             <div className="row">
@@ -34,14 +34,14 @@ const CIEquipped = () => {
                 <div className="col">Bonus</div>
             </div>
             <div className="row">
-                <div className="col">Name</div>
-                <div className="col">Stat</div>
-                <div className="col">Stat</div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
             </div>
             <div className="row">
-                <div className="col">Name</div>
-                <div className="col">Stat</div>
-                <div className="col">Stat</div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
             </div>
         </div>
     );

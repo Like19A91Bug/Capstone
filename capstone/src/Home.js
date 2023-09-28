@@ -1,17 +1,33 @@
 import "./Home.css";
 import APIURL from "./APIURL.js";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+    const [adventurers, setAdventurers] = useState([]);
+
+    const makeAPICall = async () => {
+        const res = await fetch(`${APIURL}/adventurers`);
+        const data = await res.json();
+        setAdventurers(data.adventurers);
+    };
+
+    useEffect(() => {
+        makeAPICall();
+    }, []);
+
     return (
         <div className="row">
             <div className="col">
                 <h1>Log In</h1>
-                <div className="row">
-                    Username: <input id="userName" type="text" />
+                <div className="row logIn">
+                    Username:{" "}
+                    <input className="textInput" id="userName" type="text" />
                 </div>
-                <div className="row">
-                    Password: <input id="passWord" type="text" />
+                <div className="row logIn">
+                    Password:{" "}
+                    <input className="textInput" id="passWord" type="text" />
                 </div>
                 <div>
                     <button className="profileButton">Log In</button>
@@ -25,7 +41,7 @@ const Home = () => {
                                 type="button"
                                 data-bs-toggle="collapse"
                                 data-bs-target="#collapseOne"
-                                aria-expanded="true"
+                                aria-expanded="false"
                                 aria-controls="collapseOne"
                             >
                                 Create New Profile
@@ -33,7 +49,7 @@ const Home = () => {
                         </h2>
                         <div
                             id="collapseOne"
-                            className="accordion-collapse collapse show"
+                            className="accordion-collapse collapse"
                             data-bs-parent="#newProfile"
                         >
                             <div className="accordion-body">
@@ -50,7 +66,7 @@ const Home = () => {
                                 type="button"
                                 data-bs-toggle="collapse"
                                 data-bs-target="#collapseTwo"
-                                aria-expanded="true"
+                                aria-expanded="false"
                                 aria-controls="collapseTwo"
                             >
                                 Create New Adventurer
@@ -58,18 +74,20 @@ const Home = () => {
                         </h2>
                         <div
                             id="collapseTwo"
-                            className="accordion-collapse collapse show"
+                            className="accordion-collapse collapse"
                             data-bs-parent="#createCharacter"
                         >
                             <div className="accordion-body">
-                                <CreateCharacterForm />
+                                <CreateCharacterForm
+                                    updateSavedAdventurers={makeAPICall}
+                                />
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <hr />
-                <SavedCharacter />
+                <SavedCharacter adventurers={adventurers} />
             </div>
         </div>
     );
@@ -77,95 +95,48 @@ const Home = () => {
 
 export default Home;
 
-const SavedCharacter = () => {
+const SavedCharacter = ({ adventurers }) => {
+    const navigateTo = useNavigate();
+
     return (
         <div className="accordion accordion-flush">
-            <div className="accordion-item">
-                <h2 className="accordion-header">
-                    <button
-                        className="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne"
-                        aria-expanded="true"
-                        aria-controls="flush-collapseOne"
-                    >
-                        Finnan Tumbleweed // Druid Artificer // 19 // 🟢
-                    </button>
-                </h2>
-                <div
-                    id="flush-collapseOne"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionFlushExample"
-                >
-                    <div className="accordion-body">
-                        <button className="profileButton">
-                            Load Adventurer
-                        </button>
-
-                        <button className="profileButton">
-                            Edit Adventurer
-                        </button>
+            {adventurers.map((adventurer) => {
+                const loadCharacter = () => {
+                    navigateTo(`characterinfo/${adventurer.id}`);
+                };
+                return (
+                    <div className="accordion-item">
+                        <h2 className="accordion-header">
+                            <button
+                                className="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne"
+                                aria-expanded="true"
+                                aria-controls="flush-collapseOne"
+                            >
+                                {adventurer.name} // {adventurer.class} //{" "}
+                                {adventurer.subclass} // {adventurer.race} //{" "}
+                                {adventurer.level}
+                            </button>
+                        </h2>
+                        <div
+                            id="flush-collapseOne"
+                            className="accordion-collapse collapse"
+                            data-bs-parent="#accordionFlushExample"
+                        >
+                            <div className="accordion-body">
+                                <button
+                                    onClick={loadCharacter}
+                                    className="profileButton"
+                                >
+                                    Load Adventurer
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <h2 className="accordion-header">
-                    <button
-                        className="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseTwo"
-                        aria-expanded="false"
-                        aria-controls="flush-collapseTwo"
-                    >
-                        Accordion Item #2
-                    </button>
-                </h2>
-                <div
-                    id="flush-collapseTwo"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionFlushExample"
-                >
-                    <div className="accordion-body">
-                        Placeholder content for this accordion, which is
-                        intended to demonstrate the
-                        <code>.accordion-flush</code> class. This is the second
-                        item's accordion body. Let's imagine this being filled
-                        with some actual content.
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <h2 className="accordion-header">
-                    <button
-                        className="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseThree"
-                        aria-expanded="false"
-                        aria-controls="flush-collapseThree"
-                    >
-                        Accordion Item #3
-                    </button>
-                </h2>
-                <div
-                    id="flush-collapseThree"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionFlushExample"
-                >
-                    <div className="accordion-body">
-                        Placeholder content for this accordion, which is
-                        intended to demonstrate the
-                        <code>.accordion-flush</code> class. This is the third
-                        item's accordion body. Nothing more exciting happening
-                        here in terms of content, but just filling up the space
-                        to make it look, at least at first glance, a bit more
-                        representative of how this would look in a real-world
-                        application.
-                    </div>
-                </div>
-            </div>
+                );
+            })}
         </div>
     );
 };
@@ -193,26 +164,31 @@ const NewProfileForm = () => {
     return (
         <div>
             <form onSubmit={onSubmit}>
-                <strong>Username: </strong>
-                <input type="text" name="username" />
-                <strong>Password: </strong>
-                <input
-                    type={passwordType}
-                    name="password"
-                    onMouseEnter={() => {
-                        setPasswordType("text");
-                    }}
-                    onMouseLeave={() => {
-                        setPasswordType("password");
-                    }}
-                />
+                <div className="userName">
+                    <strong>Username: </strong>
+                    <input type="text" name="username" />
+                </div>
+                <div className="passWord">
+                    <strong>Password: </strong>
+                    <input
+                        type={passwordType}
+                        name="password"
+                        onMouseEnter={() => {
+                            setPasswordType("text");
+                        }}
+                        onMouseLeave={() => {
+                            setPasswordType("password");
+                        }}
+                    />
+                </div>
+
                 <button>Create</button>
             </form>
         </div>
     );
 };
 
-const CreateCharacterForm = () => {
+const CreateCharacterForm = ({ updateSavedAdventurers }) => {
     // const [selectedRace, setSelectedRace] = useState("race");
     const onSubmit = async (event) => {
         event.preventDefault();
@@ -222,21 +198,25 @@ const CreateCharacterForm = () => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 userID: window.localStorage.getItem("userID"),
-                name: event.target.elements.name,
-                race: event.target.elements.race,
+                name: event.target.elements.name.value,
+                race: event.target.elements.race.value,
                 class: event.target.elements.class.value,
-                subclass: event.target.elements.sublass,
+                subclass: event.target.elements.subclass.value,
                 height: event.target.elements.height.value,
                 weight: event.target.elements.weight.value,
                 alignment: event.target.elements.alignment.value,
                 str: event.target.elements.str.value,
-                dex: event.target.elements.dex,
+                dex: event.target.elements.dex.value,
                 con: event.target.elements.con.value,
                 int: event.target.elements.int.value,
                 wis: event.target.elements.wis.value,
                 cha: event.target.elements.cha.value,
             }),
         });
+        const data = await response.json();
+        console.log(data);
+
+        updateSavedAdventurers();
         // setSelectedRace
     };
     return (
@@ -273,7 +253,7 @@ const CreateCharacterForm = () => {
                 <div className="row">
                     <strong>Sub-class: </strong>
                     <select name="subclass">
-                        <option>Select Race</option>
+                        <option>Select Sub-class</option>
                         <option>Champion</option>
                     </select>
                     {/* <SubClassDropdown name="subclass" /> */}
@@ -289,7 +269,7 @@ const CreateCharacterForm = () => {
                 <div className="row">
                     <strong>Alignment: </strong>
                     <select name="alignment">
-                        <option>Select Race</option>
+                        <option>Select Alignment</option>
                         <option>Chaotic Evil</option>
                         <option>Chaotic Good</option>
                         <option>Chaotic Neutral</option>
@@ -310,7 +290,7 @@ const CreateCharacterForm = () => {
                 </div>
                 <div className="row">
                     <strong>DEX: </strong>
-                    <input name="str" type="number" />
+                    <input name="dex" type="number" />
                 </div>
                 <div className="row">
                     <strong>CON: </strong>
@@ -329,6 +309,7 @@ const CreateCharacterForm = () => {
                     <input name="cha" type="number" />
                 </div>
                 <hr />
+
                 <button>Begin your Adventure!</button>
             </form>
         </div>

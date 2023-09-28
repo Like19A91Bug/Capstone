@@ -7,10 +7,21 @@
     padding-right: 20%;
 }
 
-#userName {
-    max-width: 30%;
+form {
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
-#passWord {
-    max-width: 30%;
+.container {
+    background-color: blanchedalmond;
+}
+
+.textInput {
+    width: 45%;
+}
+
+.logIn {
+    padding-left: 25%;
 }

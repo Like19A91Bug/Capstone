@@ -20,11 +20,11 @@ const NewCharacter = (db) => {
         int: DataTypes.INTEGER,
         wis: DataTypes.INTEGER,
         cha: DataTypes.INTEGER,
-        experience: DataTypes.INTEGER,
-        level: DataTypes.INTEGER,
-        health: DataTypes.INTEGER,
+        experience: { type: DataTypes.INTEGER, defaultValue: 0 },
+        level: { type: DataTypes.INTEGER, defaultValue: 0 },
+        health: { type: DataTypes.INTEGER, defaultValue: 0 },
         temphealth: DataTypes.INTEGER,
-        playerID: DataTypes.INTEGER,
+        userID: DataTypes.INTEGER,
     });
 };
 

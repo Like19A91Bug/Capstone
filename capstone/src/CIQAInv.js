@@ -7,32 +7,32 @@ const CIQAInv = () => {
                 <div className="col">Quick Summ..</div>
             </div>
             <div className="row">
-                <div className="col">Item</div>
-                <div className="col">Quick Summ..</div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
             </div>
             <div className="row">
-                <div className="col">Item</div>
-                <div className="col">Quick Summ..</div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
             </div>
             <div className="row">
-                <div className="col">Item</div>
-                <div className="col">Quick Summ..</div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
             </div>
             <div className="row">
-                <div className="col">Item</div>
-                <div className="col">Quick Summ..</div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
             </div>
             <div className="row">
-                <div className="col">Item</div>
-                <div className="col">Quick Summ..</div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
             </div>
             <div className="row">
-                <div className="col">Item</div>
-                <div className="col">Quick Summ..</div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
             </div>
             <div className="row">
-                <div className="col">Item</div>
-                <div className="col">Quick Summ..</div>
+                <div className="col"> - </div>
+                <div className="col"> - </div>
             </div>
         </div>
     );

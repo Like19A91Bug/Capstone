@@ -1,4 +1,5 @@
 import "./App.css";
+import "./NavBar.css";
 import Layout from "./Layout";
 import Home from "./Home";
 import CharacterInfo from "./CharacterInfo";
@@ -17,19 +18,19 @@ const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: "/characterinfo",
+                path: "/characterinfo/:id",
                 element: <CharacterInfo />,
             },
             {
-                path: "/bagofholding",
+                path: "/bagofholding/:id",
                 element: <BagOfHolding />,
             },
             {
-                path: "/combat",
+                path: "/combat/:id",
                 element: <Combat />,
             },
             {
-                path: "/classinfo",
+                path: "/classinfo/:id",
                 element: <ClassInfo />,
             },
         ],
