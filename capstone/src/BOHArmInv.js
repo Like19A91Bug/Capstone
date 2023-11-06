@@ -9,7 +9,7 @@ const BOHArmInv = () => {
                 `https://www.dnd5eapi.co/api/equipment-categories/armor`
             );
             const data = await response.json();
-            // console.log(data.equipment);
+            console.log(data.equipment);
             setArmor(data.equipment);
         };
         makeAPICall();
